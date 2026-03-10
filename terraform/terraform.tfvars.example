@@ -1,0 +1,31 @@
+# Example terraform.tfvars file
+# Copy this file to terraform.tfvars and update with your values
+
+# Regions
+primary_region   = "us-east-1"
+secondary_region = "us-west-2"
+tertiary_region  = "eu-west-2"
+
+# VPC CIDR Blocks
+primary_vpc_cidr   = "10.0.0.0/16"
+secondary_vpc_cidr = "10.1.0.0/16"
+tertiary_vpc_cidr  = "10.2.0.0/16"
+
+# Public Subnet CIDR Blocks
+primary_public_subnet_cidr   = "10.0.1.0/24"
+secondary_public_subnet_cidr = "10.1.1.0/24"
+tertiary_public_subnet_cidr  = "10.2.1.0/24"
+
+# Instance Type
+instance_type = "t2.micro"
+
+# SSH Key Pairs
+# IMPORTANT: Create EC2 key pairs in all three regions before running this demo
+# 
+# aws ec2 create-key-pair --key-name vpc-peering-demo-east --region us-east-1 --query 'KeyMaterial' --output text > vpc-peering-demo-east.pem
+# aws ec2 create-key-pair --key-name vpc-peering-demo-west --region us-west-2 --query 'KeyMaterial' --output text > vpc-peering-demo-west.pem
+# aws ec2 create-key-pair --key-name vpc-peering-demo-eu --region eu-west-2 --query 'KeyMaterial' --output text > vpc-peering-demo-eu.pem
+#
+primary_key_name   = "vpc-peering-demo-east"
+secondary_key_name = "vpc-peering-demo-west"
+tertiary_key_name  = "vpc-peering-demo-eu"
